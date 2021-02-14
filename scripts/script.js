@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if(myStorage.getItem('card') == null){
     fetch('https://fakestoreapi.com/products').then(response => response.json()).then(data => myStorage.setItem('card',JSON.stringify(data)));
   }
+  
   var productArray = JSON.parse(myStorage.getItem('card'));
   for(var i = 0; i < productArray.length; i++) {
     var curr = productArray[i];
@@ -18,9 +19,17 @@ window.addEventListener('DOMContentLoaded', () => {
       shadow.querySelector('button').setAttribute('add', true);
       shadow.querySelector('button').textContent = "Remove from Cart";
     }
+    var cartCount = 0;
+    if(myStorage.getItem('count') == null) {
+      myStorage.setItem('count', cartCount);
+    } else {
+      cartCount = myStorage.getItem('count');
+      myStorage.setItem('count', cartCount);
+    }
     shadow.querySelector('button').onclick = function(){addCartClick(this)};
     document.getElementById('product-list').appendChild(pr);
   }
+  
 });
 function addCartClick(elem){
   if(elem.getAttribute('add') == "true"){
