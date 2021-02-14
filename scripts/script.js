@@ -19,13 +19,6 @@ window.addEventListener('DOMContentLoaded', () => {
       shadow.querySelector('button').setAttribute('add', true);
       shadow.querySelector('button').textContent = "Remove from Cart";
     }
-    var cartCount = 0;
-    if(myStorage.getItem('count') == null) {
-      myStorage.setItem('count', cartCount);
-    } else {
-      cartCount = myStorage.getItem('count');
-      myStorage.setItem('count', cartCount);
-    }
     shadow.querySelector('button').onclick = function(){addCartClick(this)};
     document.getElementById('product-list').appendChild(pr);
   }
