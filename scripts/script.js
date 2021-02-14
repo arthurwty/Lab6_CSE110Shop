@@ -14,6 +14,10 @@ window.addEventListener('DOMContentLoaded', () => {
     shadow.querySelector('img').src = curr.image;
     shadow.querySelector('img').alt = curr.title;
     shadow.querySelector('button').id = i;
+    if(myStorage.getItem(i) != null) {
+      shadow.querySelector('button').setAttribute('add', true);
+      shadow.querySelector('button').textContent = "Remove from Cart";
+    }
     shadow.querySelector('button').onclick = function(){addCartClick(this)};
     document.getElementById('product-list').appendChild(pr);
   }
