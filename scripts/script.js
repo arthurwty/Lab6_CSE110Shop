@@ -50,4 +50,5 @@ function removeCartClick(elem){
   document.getElementById('cart-count').textContent = cartCount;
   elem.textContent = "Add to Cart";
   elem.setAttribute('add', false);
+  myStorage.removeItem(elem.id);
 }
