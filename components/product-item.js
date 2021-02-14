@@ -70,7 +70,8 @@ class ProductItem extends HTMLElement {
       text-overflow: unset;
     }`;
     var card = document.createElement('li');
-    card.classList = "product";
+    //card.classList = "product";
+    card.setAttribute('class','product');
     var image= document.createElement('img');
     image.setAttribute('src','./assets/shop-icon.png');
     image.setAttribute('alt',"shopping cart");
